@@ -1,4 +1,4 @@
-class AllMovies {
+class MovieModel {
 	int? id;
 	String? title;
 	String? content;
@@ -8,7 +8,7 @@ class AllMovies {
 	List<dynamic>? tags;
 	String? type;
 
-	AllMovies({
+	MovieModel({
 		this.id, 
 		this.title, 
 		this.content, 
@@ -19,7 +19,7 @@ class AllMovies {
 		this.type, 
 	});
 
-	factory AllMovies.fromJson(Map<String, dynamic> json) => AllMovies(
+	factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
 				id: json['id'] as int?,
 				title: json['title'] as String?,
 				content: json['content'] as String?,
@@ -30,14 +30,5 @@ class AllMovies {
 				type: json['type'] as String?,
 			);
 
-	Map<String, dynamic> toJson() => {
-				'id': id,
-				'title': title,
-				'content': content,
-				'thumbnail': thumbnail,
-				'embed_link': embedLink,
-				'categories': categories,
-				'tags': tags,
-				'type': type,
-			};
+
 }

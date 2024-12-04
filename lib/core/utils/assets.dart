@@ -6,7 +6,7 @@ class AssetsData {
   static const christmas2024 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ZLcJGV5-O2BzZRwd2jzuexQyI3xxBxQdHw&s';
   static const arabicMovies = 'https://www.hbibi.net/images/arabic-films.jpg';
   static const movTvSeriesies = 'https://valentinaortizs.wordpress.com/wp-content/uploads/2014/05/tv_shows_aicon_pack_1_by_fafla-d3gmfak.png';
-  static const kidsFamily = 'https://media.istockphoto.com/id/1478374885/photo/joyful-family-watching-movie-in-cinema.jpg?s=612x612&w=0&k=20&c=U0Qp-c2vCTUPG51ZOD2H7KcrByyBKow3r9wSR2QMFZU=';
+  static const kidsFamily = 'https://dayoutwiththekids-res.cloudinary.com/image/upload/v1607610269/blog/kids-films-family-movies/best-movies-final_hzifo8.png';
   static const translatedTurkishSeries = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp1zsTbxAM1NR17Iymetd7JDP_8GAZiF15oQ&s';
   static const dubbedTurkishSeries = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZkygy12_W-lv476d8nVAmVp7VmhHqL6FEKw&s';
   static const arabicSeries = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_CfKPtDmOmK4CaSUeelEFtXCF-jYoxtvyw&s';

@@ -1,4 +1,5 @@
 
+import 'package:anetv/featuers/home/data/models/movie_model.dart';
 import 'package:anetv/featuers/home/presentation/views/home_view.dart';
 import 'package:anetv/featuers/search/presentation/view/search_view.dart';
 import 'package:anetv/featuers/splash/presentation/views/splash_view.dart';
@@ -16,7 +17,9 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kSearchView,
-      builder: (context, state) => const SearchView(),
+      builder: (context, state) => SearchView(
+        catogry: state.extra as dynamic,
+      ),
     ),
     GoRoute(
       path: kHomeView,

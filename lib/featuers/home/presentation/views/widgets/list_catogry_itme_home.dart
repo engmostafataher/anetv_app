@@ -14,16 +14,40 @@ class ListCatogryItmeHome extends StatefulWidget {
 
 class _ListCatogryItmeHomeState extends State<ListCatogryItmeHome> {
   List<CatogryItmeModel> listCatogry = [
-    CatogryItmeModel(image: AssetsData.allMovies, title: 'All'),
-    CatogryItmeModel(image: AssetsData.movies, title: 'Movies'),
-    CatogryItmeModel(image: AssetsData.christmas2024, title: 'Christmas 2024'),
-    CatogryItmeModel(image: AssetsData.arabicMovies, title: 'افلام عربيه'),
-    CatogryItmeModel(image: AssetsData.movTvSeriesies, title: 'Tv-series'),
-    CatogryItmeModel(image: AssetsData.kidsFamily, title: 'Kids & Family'),
-    CatogryItmeModel(image: AssetsData.translatedTurkishSeries, title: 'مسلسلات تركية مترجمة'),
-    CatogryItmeModel(image: AssetsData.dubbedTurkishSeries, title: 'مسلسلات تركية مدبلجة'),
-    CatogryItmeModel(image: AssetsData.arabicSeries, title: 'مسلسلات عربية'),
-    CatogryItmeModel(image: AssetsData.cartoonDubbed, title: 'كرتون مدبلج'),
+    CatogryItmeModel(
+        image: AssetsData.movies, title: 'All Movies', catogry: 'movies'),
+    CatogryItmeModel(
+        image: AssetsData.christmas2024,
+        title: 'Christmas 2024',
+        catogry: 'Christmas-Movies-2024'),
+    CatogryItmeModel(
+        image: AssetsData.arabicMovies,
+        title: 'افلام عربيه',
+        catogry: 'افلام%20عربي'),
+    CatogryItmeModel(
+        image: AssetsData.movTvSeriesies,
+        title: 'Tv-series',
+        catogry: 'tv-series'),
+    CatogryItmeModel(
+        image: AssetsData.kidsFamily,
+        title: 'Kids & Family',
+        catogry: 'Kids%20-%20Family'),
+    CatogryItmeModel(
+        image: AssetsData.translatedTurkishSeries,
+        title: 'مسلسلات تركية مترجمة',
+        catogry: 'تركي-مترجم'),
+    CatogryItmeModel(
+        image: AssetsData.dubbedTurkishSeries,
+        title: 'مسلسلات تركية مدبلجة',
+        catogry: 'تركي-مدبلج'),
+    CatogryItmeModel(
+        image: AssetsData.arabicSeries,
+        title: 'مسلسلات عربية',
+        catogry: 'مسلسلات-عربية'),
+    CatogryItmeModel(
+        image: AssetsData.cartoonDubbed,
+        title: 'كرتون مدبلج',
+        catogry: 'رسوم-اطفال-مدبلجة'),
   ];
 
   @override
@@ -39,7 +63,8 @@ class _ListCatogryItmeHomeState extends State<ListCatogryItmeHome> {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                GoRouter.of(context).push(AppRouter.kSearchView);
+                GoRouter.of(context).push(AppRouter.kSearchView,
+                    extra: listCatogry[index].catogry);
               },
               child: Padding(
                 padding: const EdgeInsets.only(
