@@ -68,8 +68,8 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
                     });
                   },
                   icon: isPasswordVisible?
-                   Icon(Icons.lock_open_outlined):
-                       Icon(Icons.lock)
+                   const Icon(Icons.lock_open_outlined):
+                       const Icon(Icons.lock)
                       ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
