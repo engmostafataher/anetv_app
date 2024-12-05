@@ -10,19 +10,21 @@ class AllMoviesHomeRepoImpl implements AllMoviesHomeRepo {
 
   const AllMoviesHomeRepoImpl(this.apiService);
   final String baseUrlAllMovies = 'https://alaanetstreaming.com/';
-
   String feachMovies({required String catogry}) {
-    return baseUrlAllMovies+'v_v/?category=$catogry&type=movie';
+    return '${baseUrlAllMovies}v_v/?category=$catogry&type=movie';
   }
 
   @override
-  Future<Either<Failures, List<MovieModel>>> fetchMovie({required String catogry}) async {
+  Future<Either<Failures, List<MovieModel>>> fetchMovie(
+      {required String catogry}) async {
     try {
-      var data = await apiService.get(apis: feachMovies(catogry:catogry ));
+      var data = await apiService.get(apis: feachMovies(catogry: catogry));
+      //print('API Response: $data');
       List<MovieModel> movie = [];
       for (var i in data['videos']) {
         movie.add(MovieModel.fromJson(i));
       }
+      print('Movie List: $movie');
       return right(movie);
     } catch (e) {
       if (e is DioException) {
@@ -31,14 +33,6 @@ class AllMoviesHomeRepoImpl implements AllMoviesHomeRepo {
       return left(ServerFailuer(e.toString()));
     }
   }
-
-
 }
-
-
-
-
-
-
 
 // https://alaanetstreaming.com/v_v/

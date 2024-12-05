@@ -13,7 +13,8 @@ class AllMoviesCubit extends Cubit<AllMoviesState> {
     result.fold((failure) {
       emit(AllMoviesFailure(failure.errorMessage));
     }, (allMovies) {
+      print('Movies received: $allMovies');
       emit(AllMoviesSuccess(allMovies));
     });
   }
-  }
+}

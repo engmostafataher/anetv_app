@@ -7,7 +7,7 @@ class SearchView extends StatelessWidget {
     super.key, required this.catogry,
   });
 
-  final MovieModel catogry;
+  final String catogry;
 
   @override
   Widget build(BuildContext context) {

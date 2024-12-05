@@ -8,11 +8,12 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: AdaptiveLayout(
-        mobileLayout: (context) => const HomeViewBody(),
-        tabletLayout: (context) => const SizedBox(),
-        desktopLayout: (context) => const SizedBox(),
+      body: SafeArea(
+        child: AdaptiveLayout(
+          mobileLayout: (context) => const HomeViewBody(),
+          tabletLayout: (context) => const SizedBox(),
+          desktopLayout: (context) => const SizedBox(),
+        ),
       ),
     );
   }
