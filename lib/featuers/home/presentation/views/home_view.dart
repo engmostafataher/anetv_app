@@ -11,7 +11,6 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
         child: AdaptiveLayout(
           mobileLayout: (context) => const HomeViewBody(),
-          tabletLayout: (context) => const SizedBox(),
           desktopLayout: (context) => const SizedBox(),
         ),
       ),

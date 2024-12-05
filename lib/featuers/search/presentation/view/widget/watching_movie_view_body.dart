@@ -7,18 +7,6 @@ import 'package:video_player/video_player.dart';
 
 import '../../manager/watching_movie_cubit/video_player_cubit.dart';
 
-// class WatchingMovieViewBody extends StatelessWidget {
-//   const WatchingMovieViewBody({super.key, required this.url});
-//   final String url;
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Column(
-//       children: [
-//
-//       ],
-//     );
-//   }
-// }
 
 class WatchingMovieViewBody extends StatelessWidget {
   const WatchingMovieViewBody({super.key, required this.url});

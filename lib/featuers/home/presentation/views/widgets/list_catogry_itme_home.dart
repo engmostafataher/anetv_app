@@ -49,7 +49,7 @@ class _ListCatogryItmeHomeState extends State<ListCatogryItmeHome> {
         title: 'كرتون مدبلج',
         catogry: 'رسوم-اطفال-مدبلجة'),
   ];
-
+// 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;

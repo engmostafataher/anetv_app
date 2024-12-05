@@ -1,4 +1,5 @@
 
+import 'package:anetv/featuers/auth/presentation/views/login_auth.dart';
 import 'package:anetv/featuers/home/data/models/movie_model.dart';
 import 'package:anetv/featuers/home/presentation/views/home_view.dart';
 import 'package:anetv/featuers/search/presentation/view/search_view.dart';
@@ -12,6 +13,7 @@ abstract class AppRouter {
   static const kBookDetailsView = '/bookDetailsView';
   static const kSearchView = '/searchView';
   static const kWatchingMovieView = '/WatchingMovieView';
+  static const kLoginView = '/login';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -34,9 +36,9 @@ abstract class AppRouter {
       path: kHomeView,
       builder: (context, state) => const HomeView(),
     ),
-    // GoRoute(
-    //   path: kBookDetailsView,
-    //   builder: (context, state) => const BookDetailsView(),
-    // )
+    GoRoute(
+      path: kLoginView,
+      builder: (context, state) => const LoginAuth(),
+    )
   ]);
 }
