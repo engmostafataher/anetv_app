@@ -25,7 +25,7 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
             child: Icon(
               Icons.lock_outline,
               size: 80,
-              color: Color(0xffFFB5F072),
+              color: Color.fromARGB(255, 165, 192, 134),
             ),
           ),
           const SizedBox(height: 20),
@@ -81,7 +81,7 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
             width: double.infinity,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xffFFB5F072),
+                backgroundColor: const Color.fromARGB(255, 165, 192, 134),
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
