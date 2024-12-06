@@ -1,4 +1,5 @@
 import 'package:anetv/core/utils/app_router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -27,14 +28,20 @@ class MovesList extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kWatchingMovieView,
-                        extra: allMoves[index].embedLink);
+                    GoRouter.of(context).push(
+                      AppRouter.kWatchingMovieView,
+                      extra: allMoves[index].embedLink,
+                    );
                   },
-                  child: Image.network(
+                  child: CachedNetworkImage(
                     height: 150,
                     width: double.infinity,
-                    '${allMoves[index].thumbnail}',
                     fit: BoxFit.fill,
+                    imageUrl: '${allMoves[index].thumbnail}',
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
                   ),
                 )
               ],

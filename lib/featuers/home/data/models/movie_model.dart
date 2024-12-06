@@ -50,46 +50,4 @@ class MovieModel {
   }
 }
 
-// class MovieModel {
-// 	int? id;
-// 	String? title;
-// 	String? content;
-// 	String? thumbnail;
-// 	String? embedLink;
-// 	List<String>? categories;
-// 	List<dynamic>? tags;
-// 	String? type;
-//
-// 	MovieModel({
-// 		this.id,
-// 		this.title,
-// 		this.content,
-// 		this.thumbnail,
-// 		this.embedLink,
-// 		this.categories,
-// 		this.tags,
-// 		this.type,
-// 	});
-//
-// 	factory MovieModel.fromJson(Map<String, dynamic> json) {
-// 		return MovieModel(
-// 			id: json['id'] as int?,
-// 			title: json['title'] as String?,
-// 			content: json['content'] as String?,
-// 			thumbnail: json['thumbnail'] as String?,
-// 			embedLink: json['embed_link'] as String?,
-// 			categories: (json['categories'] as List<dynamic>?)?.map((e) => e as String).toList(),
-// 			tags: json['tags'] as List<dynamic>?,
-// 			// Fix the type handling to ensure we account for both bool and String
-// 			type: _convertTypeToString(json['type']),
-// 		);
-// 	}
-//
-// 	// Helper function to handle type conversion of `type` field
-// 	static String? _convertTypeToString(dynamic value) {
-// 		if (value == null) return null;
-// 		if (value is bool) return value.toString(); // Convert `bool` to string
-// 		if (value is String) return value; // If it's already a `String`, return it
-// 		return null; // If it's some other type, return null (or handle differently if needed)
-// 	}
-// }
+
