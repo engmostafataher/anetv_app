@@ -1,5 +1,6 @@
 import 'package:anetv/featuers/home/presentation/views/widgets/adaptive_layout.dart';
 import 'package:anetv/featuers/home/presentation/views/widgets/home_view_body.dart';
+import 'package:anetv/featuers/home/presentation/views/widgets/home_view_body_tv.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,8 +12,7 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
         child: AdaptiveLayout(
           mobileLayout: (context) => const HomeViewBody(),
-          tabletLayout: (context) => const SizedBox(),
-          desktopLayout: (context) => const SizedBox(),
+          desktopLayout: (context) => const HomeViewBodyTv(),
         ),
       ),
     );

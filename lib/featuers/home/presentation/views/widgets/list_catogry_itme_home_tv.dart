@@ -5,14 +5,14 @@ import 'package:anetv/featuers/home/presentation/views/widgets/catogry_itme_home
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ListCatogryItmeHome extends StatefulWidget {
-  const ListCatogryItmeHome({super.key});
+class ListCatogryItmeHomeTv extends StatefulWidget {
+  const ListCatogryItmeHomeTv({super.key});
 
   @override
-  State<ListCatogryItmeHome> createState() => _ListCatogryItmeHomeState();
+  State<ListCatogryItmeHomeTv> createState() => _ListCatogryItmeHomeTvState();
 }
 
-class _ListCatogryItmeHomeState extends State<ListCatogryItmeHome> {
+class _ListCatogryItmeHomeTvState extends State<ListCatogryItmeHomeTv> {
   List<CatogryItmeModel> listCatogry = [
     CatogryItmeModel(
         image: AssetsData.movies, title: 'All Movies', catogry: 'movies'),
@@ -49,7 +49,7 @@ class _ListCatogryItmeHomeState extends State<ListCatogryItmeHome> {
         title: 'كرتون مدبلج',
         catogry: 'رسوم-اطفال-مدبلجة'),
   ];
-// 
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -57,28 +57,31 @@ class _ListCatogryItmeHomeState extends State<ListCatogryItmeHome> {
     return SizedBox(
       width: width,
       height: height,
-      child: ListView.builder(
-          padding: EdgeInsets.zero,
+      child: GridView.builder(
           itemCount: listCatogry.length,
-          itemBuilder: (context, index) {
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4, // يعرض 3 أعمدة في الشاشة
+            crossAxisSpacing: 10, // المسافة بين الأعمدة
+            mainAxisSpacing: 10, // المسافة بين الصفوف
+            childAspectRatio: 1.0, // نسبة العرض إلى الارتفاع للعناصر
+          ),
+          itemBuilder: (context,index){
             return InkWell(
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kSearchView,
-                    extra: listCatogry[index].catogry);
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 10,
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kSearchViewTv,
+                      extra: listCatogry[index].catogry);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 10,
+                  ),
+                  child: CatogryItmeHome(
+                    images: listCatogry[index].image,
+                    title: listCatogry[index].title,
+                  ),
                 ),
-                child: CatogryItmeHome(
-                  images: listCatogry[index].image,
-                  title: listCatogry[index].title,
-                ),
-              ),
-            );
+              );
           }),
     );
   }
 }
-// width: width * .9,
-//       height: height * .25,
