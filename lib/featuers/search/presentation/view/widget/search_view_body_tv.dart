@@ -1,5 +1,4 @@
 import 'package:anetv/core/utils/styels.dart';
-import 'package:anetv/featuers/home/data/models/movie_model.dart';
 import 'package:anetv/featuers/home/presentation/manager/all_movies_cubit/all_movies_cubit.dart';
 import 'package:anetv/featuers/search/presentation/view/widget/custom_search_text_field.dart';
 import 'package:anetv/featuers/search/presentation/view/widget/moves_list_tv.dart';
