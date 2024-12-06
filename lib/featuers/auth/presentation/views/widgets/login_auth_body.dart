@@ -1,5 +1,6 @@
 import 'package:anetv/core/utils/app_router.dart';
 import 'package:anetv/core/utils/styels.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,6 +21,15 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          IconButton(
+              onPressed: () {
+                if (context.locale.languageCode == 'en') {
+                  context.setLocale(const Locale('ar'));
+                } else {
+                  context.setLocale(const Locale('en'));
+                }
+              },
+              icon: const Icon(Icons.language)),
           const Spacer(),
           const Center(
             child: Icon(
@@ -31,14 +41,14 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
           const SizedBox(height: 20),
           Center(
             child: Text(
-              'Create a new acount',
+              context.tr('CreateANewAccount'),
               style: Styels.textStyle20.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(height: 10),
           Center(
             child: Text(
-              'Please choose a password that hasn\'t been used before. Must be at least 8 characters.',
+              context.tr('TitleAuth'),
               textAlign: TextAlign.center,
               style: Styels.textStyle14.copyWith(color: Colors.grey),
             ),
@@ -48,7 +58,7 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
             keyboardType: TextInputType.emailAddress,
             obscureText: isPasswordVisible,
             decoration: InputDecoration(
-              labelText: 'Please enter your email',
+              labelText: context.tr('Email'),
               prefixIcon: const Icon(Icons.email),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -60,17 +70,16 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
             keyboardType: TextInputType.emailAddress,
             obscureText: isPasswordVisible,
             decoration: InputDecoration(
-              labelText: 'Enter the password',
+              labelText: context.tr('Password'),
               prefixIcon: IconButton(
                   onPressed: () {
                     setState(() {
                       isPasswordVisible = !isPasswordVisible;
                     });
                   },
-                  icon: isPasswordVisible?
-                   const Icon(Icons.lock_open_outlined):
-                       const Icon(Icons.lock)
-                      ),
+                  icon: isPasswordVisible
+                      ? const Icon(Icons.lock_open_outlined)
+                      : const Icon(Icons.lock)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -91,7 +100,7 @@ class _LoginAuthBodyState extends State<LoginAuthBody> {
                 GoRouter.of(context).push(AppRouter.kHomeView);
               },
               child: Text(
-                'Welcome to Home 😄🤚',
+                context.tr('Welcome'),
                 style: Styels.textStyle16.copyWith(color: Colors.white),
               ),
             ),
