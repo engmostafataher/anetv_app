@@ -12,7 +12,7 @@ class WatchingMovieViewBody extends StatefulWidget {
 }
 
 class WatchingMovieViewBodyState extends State<WatchingMovieViewBody> {
-  late VideoPlayerController _videoPlayerController;
+  VideoPlayerController? _videoPlayerController;
   late Future<void> _initializeVideoPlayerFuture;
   late WebViewController _webViewController;
   late final GlobalKey<ScaffoldState> _scaffoldKey;
@@ -37,7 +37,7 @@ class WatchingMovieViewBodyState extends State<WatchingMovieViewBody> {
             'https://drive.google.com/uc?export=download&id=$fileId';
         _videoPlayerController =
             VideoPlayerController.networkUrl(Uri.parse(downloadUrl));
-        _initializeVideoPlayerFuture = _videoPlayerController.initialize();
+        _initializeVideoPlayerFuture = _videoPlayerController!.initialize();
       } catch (e) {
         print('Error processing Google Drive URL: $e');
       }
@@ -57,8 +57,8 @@ class WatchingMovieViewBodyState extends State<WatchingMovieViewBody> {
 
   @override
   void dispose() {
-    if (_videoPlayerController.value.isInitialized) {
-      _videoPlayerController.dispose();
+    if (_videoPlayerController != null && _videoPlayerController!.value.isInitialized) {
+      _videoPlayerController!.dispose();
     }
     super.dispose();
   }
@@ -68,8 +68,7 @@ class WatchingMovieViewBodyState extends State<WatchingMovieViewBody> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor:
-            Color(0xff1F1F1F), //Color(0xff1D1D1D), //Color(0xff1c1d1f),
+        backgroundColor: const Color(0xff1F1F1F), //Color(0xff1D1D1D), //Color(0xff1c1d1f),
         centerTitle: true,
         title: const Text("Watching Movie"),
         leading: IconButton(
@@ -99,21 +98,21 @@ class WatchingMovieViewBodyState extends State<WatchingMovieViewBody> {
                         children: [
                           AspectRatio(
                             aspectRatio:
-                                _videoPlayerController.value.aspectRatio,
-                            child: VideoPlayer(_videoPlayerController),
+                                _videoPlayerController!.value.aspectRatio,
+                            child: VideoPlayer(_videoPlayerController!),
                           ),
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                if (_videoPlayerController.value.isPlaying) {
-                                  _videoPlayerController.pause();
+                                if (_videoPlayerController!.value.isPlaying) {
+                                  _videoPlayerController!.pause();
                                 } else {
-                                  _videoPlayerController.play();
+                                  _videoPlayerController!.play();
                                 }
                               });
                             },
                             child: Icon(
-                              _videoPlayerController.value.isPlaying
+                              _videoPlayerController!.value.isPlaying
                                   ? Icons.pause
                                   : Icons.play_arrow,
                             ),
